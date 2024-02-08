@@ -25,14 +25,14 @@ def baixa_pdf(http_session):
     pdf_link_anexo02 = convert_pdf_link[2].get("href")
 
     pdf_response = http_session.get(pdf_link_anexo01)
-    pdf_response = http_session.get(pdf_link_anexo02)
+    pdf_response2 = http_session.get(pdf_link_anexo02)
     pdf_filename_anexo01 = pdf_link_anexo01.split("/")[-1]
     pdf_filename_anexo02 = pdf_link_anexo02.split("/")[-1]
 
     with open(pdf_filename_anexo01, "wb") as f:
         f.write(pdf_response.content)
     with open(pdf_filename_anexo02, "wb") as f:
-        f.write(pdf_response.content)
+        f.write(pdf_response2.content)
 
     return pdf_filename_anexo01, pdf_filename_anexo02
 
